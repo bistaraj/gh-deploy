@@ -52,7 +52,7 @@ import { EmptyComponent } from './common/test/empty.mock';
       { path: 'not-found', component: NotFoundComponent },
       { path: 'bad-request', component: BadRequestComponent },
       { path: 'unexpected-error', component: UnexpectedErrorComponent },
-      { path: '**', component: NotFoundComponent }
+      { path: '**', component: UserComponent }
     ]),
 
     MatCardModule,
