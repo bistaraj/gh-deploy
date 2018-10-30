@@ -1,0 +1,36 @@
+<div class="row justify-content-center add-user">
+ <form [formGroup]= "form" class="user-form" (ngSubmit) = "submit(form.value)" novalidate>
+    <h2 class="alert alert-info" *ngIf= "isCreated">Data has been added successfully!</h2>
+  <table class="user-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="user-full-width">
+          <input
+            matInput
+            formControlName = "name"
+            placeholder="Full Name">
+        </mat-form-field>
+        <div *ngIf="name.touched && name.invalid" class ="alert alert-danger">
+            <div *ngIf="name.hasError('required')">Name is requierd</div>
+        </div>
+    </td>
+      <td>
+        <mat-form-field class="user-full-width">
+          <input
+            matInput
+            formControlName = "email"
+            placeholder="Email">
+        </mat-form-field>
+        <div *ngIf="email.touched && email.invalid" class ="alert alert-danger">
+            <div *ngIf="email.hasError('required')">Email is requierd</div>
+            <div *ngIf="email.hasError('email')">Email should be valid</div>
+        </div>
+      </td>
+      <td>
+          <button mat-stroked-button color="primary" type="submit" [disabled]="form.invalid">Add User</button>
+          <button mat-stroked-button color="primary" type="submit" [disabled]="!isCreated" (click)='reset()'>Reset</button>
+      </td>
+    </tr>
+  </table>
+</form>
+</div>

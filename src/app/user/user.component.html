@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{title}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<app-add-user></app-add-user>
+<mat-list>
+  <mat-list-item *ngFor="let user of users; last as last">
+    <h4 mat-line>{{user.name}}</h4>
+    <button mat-button color="primary" [routerLink]="['users', user.id]">Update</button>
+    <button mat-button color="warn" (click)="deleteUser(user)">Delete</button>
+    <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+  </mat-list-item>
+</mat-list>

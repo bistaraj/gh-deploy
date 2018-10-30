@@ -1,0 +1,55 @@
+<mat-card class="user-card">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>USER UPDATE</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div mat-card-avatar class="user-header-image"></div>
+  <div *ngIf="true" class=" container col-md-8 order-md-1">
+    <form [formGroup]="form" class="needs-validation" novalidate>
+      <h2 class="alert alert-info" *ngIf="isUpdated">Data is updated successfully!</h2>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input type="text" formControlName="firstName" class="form-control" id="firstName" value="firstName">
+          <div *ngIf="firstName.touched && firstName.invalid" class="alert alert-danger">
+            <div *ngIf="firstName.hasError('required')">Enter first name</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input type="text" formControlName="lastName" class="form-control" id="lastName">
+          <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">
+            <div *ngIf="lastName.hasError('required')">Enter last name</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="username">User name</label>
+          <input type="text" formControlName="userName" class="form-control" id="userName">
+          <div *ngIf="userName.touched && userName.invalid" class="alert alert-danger">
+            <div *ngIf="userName.hasError('required')">Enter user name</div>
+            <div *ngIf="userName.hasError('shouldBeUnique')">This name is already taken</div>
+            <div *ngIf="userName.hasError('canNotContainSpace')">User name can't have space.</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for=" email">Email</label>
+          <input type="email" formControlName="email" class="form-control" id="email">
+          <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+            <div *ngIf="email.hasError('required')">Enter email</div>
+            <div *ngIf="email.hasError('email')">Invalid email</div>
+            <div *ngIf="email.hasError('shouldBeUnique')"> This email is already exist</div>
+            <div *ngIf="email.hasError('canNotContainSpace')">Email can't have space.</div>
+          </div>
+        </div>
+      </div>
+      <div class="user-button-row">
+        <button mat-button (click)='updateUser(form.value)'>SAVE</button>
+        <button mat-button (click)='reset()'>RESET</button>
+      </div>
+    </form>
+  </div>
+</mat-card>
