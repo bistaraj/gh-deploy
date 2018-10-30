@@ -49,9 +49,9 @@ import { EmptyComponent } from './common/test/empty.mock';
       { path: '', component: UserComponent },
       { path: 'users', component: UserComponent },
       { path: 'users/:id', component: UpdateComponent },
-      { path: 'not-found', component: NotFoundComponent },
-      { path: 'bad-request', component: BadRequestComponent },
-      { path: 'unexpected-error', component: UnexpectedErrorComponent },
+      { path: 'not-found', component: UserComponent },
+      { path: 'bad-request', component: UserComponent },
+      { path: 'unexpected-error', component: UserComponent },
       { path: '**', component: UserComponent }
     ]),
 
