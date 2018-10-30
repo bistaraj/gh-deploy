@@ -11,7 +11,7 @@ import { ActivatedRoute } from "@angular/router";
   providedIn: "root"
 })
 export class UserService {
-  private url = `http://jsonplaceholder.typicode.com`;
+  private url = `https://jsonplaceholder.typicode.com`;
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute ) {}
